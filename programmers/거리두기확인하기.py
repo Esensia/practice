@@ -1,3 +1,4 @@
+# 안되는 상황들 모두 체크하기
 def solution(places):
     answer = []
     
