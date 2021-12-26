@@ -1,3 +1,4 @@
+# 최소와 최대를 
 def solution(lines):
     answer = []
     
