@@ -1,3 +1,4 @@
+#
 def check(str_u) :
     count = 0
     for s in str_u :
