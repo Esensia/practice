@@ -1,3 +1,4 @@
+#upper_bound와 lower_bound의 차이는 target이 해당 리스트에 몇개 있는지 알 수 있는 스킬
 import bisect
 
 def solution(N, stages):
