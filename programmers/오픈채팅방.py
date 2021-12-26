@@ -1,3 +1,4 @@
+# dic이용하기
 def solution(record):
     answer = []
     
