@@ -1,3 +1,4 @@
+#문자열처리 문제
 def solution(s):
     answer = ""
     idx = 0
