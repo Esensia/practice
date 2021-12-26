@@ -1,3 +1,4 @@
+#수의 일정한 규칙을 찾아라
 def solution(n):
     answer = ''
     while n> 0 :
