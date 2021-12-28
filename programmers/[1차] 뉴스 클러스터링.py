@@ -39,8 +39,6 @@ def solution(str1, str2):
         if dic2[s2] == 0 :
             dic2[s2] = jaca_str2.count(s2)
     
-    print(dic1)
-    print(dic2)
     disjoint = 0
     union = 0
     
