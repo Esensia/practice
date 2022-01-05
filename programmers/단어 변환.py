@@ -1,4 +1,4 @@
-min_count = float('inf')
+min_count = float('inf') #
 
 def compare(str1,str2) :
     count = 0
