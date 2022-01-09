@@ -7,4 +7,4 @@
 ---
 
 ## 1. Project
-:arrow_forward: [내용](/contents/Project.md)
+:arrow_forward: [내용](contents/Project.md)
