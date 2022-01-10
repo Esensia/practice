@@ -195,5 +195,24 @@ GROUP BY B.NAME
 ORDER BY COUNT DESC, B.NAME
 ```
   * 접근 방법
-    * 문제에서 
+    * 문제에서 주어진 조건대로 조건절을 작성하고 조인을 한다.
+    * GROUP BY를 이용해 CART_PRODUCTS의 이름으로 그룹을 맺고 각 해당하는 그룹의 개수를 같이 출력해준다.
+---
 
+### 5번 문제
+```sql
+SELECT SALE_YM "판매년월",
+SUM(DECODE(GOODS_CD,'0001',SALE_CNT)) "상품0001판매개수",
+SUM(DECODE(GOODS_CD,'0002',SALE_CNT)) "상품0002판매개수",
+SUM(DECODE(GOODS_CD,'0003',SALE_CNT)) "상품0003판매개수",
+SUM(DECODE(GOODS_CD,'0004',SALE_CNT)) "상품0004판매개수",
+SUM(DECODE(GOODS_CD,'0005',SALE_CNT)) "상품0005판매개수",
+SUM(SALE_CNT) "전체판매개수"
+FROM KKB_GOODS_S
+GROUP BY SALE_YM
+ORDER BY SALE_YM
+```
+  * 접근 방법
+    * 판매년월대로 그룹을 짓고 그 그룹의 GOODS_CD에 해당하는 값만 카운트를 해주기 위해 DECODE를 이용
+    * 0001인 경우 0001에 해당하는 CNT만 SUM하고 다른것도 마찬가지로..
+    * 출력에 전체판매개수가 있는지 몰라서 해맸었음
