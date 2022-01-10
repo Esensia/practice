@@ -1,6 +1,6 @@
 # Code Review
-
-* 1번 문제
+---
+### 1번 문제
 <br>유사 문제 : 프로그래머스 단속카메라
 ```java
 import java.util.*;
@@ -32,9 +32,10 @@ class Solution {
     * 다음 상담자의 시작시간이 끝나는 시간보다 크다면 상담시간의 공백이 생겼다는 것이므로 처음 시작시간과 현재 끝나는 시간의 차이를 답에 더해준다.
     * 시작시간과 끝나는 시간을 공백이 생긴 상담자의 시간으로 맞춘다.
     * 루프를 다 돌면 마지막 상담을 시작시간부터 끝까지 했으므로 시작시간과 끝나는 시간의 차이를 답에 더해준다.
+    
   * 풀이의 오류?
     * 시작시간을 기준으로 정렬을 했기 때문에 끝나는 시간과 시작시간의 대소관계를 통해 상담시간의 공백을 알아낼 수 있다.
-    * 즉, 이 문제는 시작시간을 기준으로 정렬을 하면 그리디하게 풀 수 있다.
+    * 즉, 이 문제는 시작시간을 기준으로 정렬을 하면 그리디하게 풀 수 있다.<br>
   * 기타질문예상
     * Q. java.util 패키지란?
       * 프로그램을 개발하는 데 사용할 수 있는 유틸리티 클래스가 다수 포함, java.lang의 경우 자동 import가 되지만 util 패키지의 경우 import해줘야함
@@ -55,8 +56,8 @@ class Solution {
       });
       ```
       * 람다식은 런타임 때 익명의 내부 클래스로 변경돼서 처리되므로 동작은 동일하며 코드의 가독성이 높아진다.
-
-* 2번 문제
+---
+### 2번 문제
 ```java
 class Solution {
     // 다른걸 낸 한명의 인덱스를 찾기위한 함수
@@ -144,7 +145,55 @@ class Solution {
 ```
   * 접근 방법
     * 문제에서 점수를 계산하는 방법은 한명이 이겼을 때와 두명이 이겼을 때 이므로 비기는 경우는 제외한다.
-    
+    * 승자가 한명인 경우 다른걸 낸 한명의 인덱스를 찾고 그 해당하는 배열에 +2를 해준다.
+    * 승자가 두명인 경우 다른걸 낸 한명의 인덱스를 찾고 그 인덱스를 제외한 다른 인덱스들의 값을 비교하며 문제에서 주어진 점수처리 방식을 적용한다.
+---
+### 3번 문제
+```java
+import java.util.*;
+class Solution {
+    long answer = 0;
 
+    private void dfs(int idx, int k,long sum, long[]numbers, boolean[] visited,int q, int r){
 
+        if(sum != 0){
+            answer += Math.pow(sum,q);
+            answer %= 1000000007;
+        }
+        for(int i=idx;i<numbers.length;i++){
+            if(!visited[i]){
+                visited[i] = true;
+                dfs(i+1,k+1,(sum + (long)Math.pow(r,k) * numbers[i])%1000000007,numbers,visited, q, r);
+                visited[i] = false;
+            }
+        }
+    }
+
+    public long solution(long[] numbers, int q, int r) {
+
+        Arrays.sort(numbers);
+        boolean[] visited = new boolean[numbers.length];
+        dfs(0,0,0,numbers,visited,q,r);
+        return answer;
+    }
+}
+```
+  * 접근 방법
+    * 처음엔 모든 부분집합의 경우를 구해야 하므로 dfs를 돌면서 조합을 만들었다.
+    * 모든 조합을 만들어 가며 주어진 멱급수 식을 적용한다.
+    * 하지만 이 경우 n의 범위는 5000개 까지므로 2^5000 -1 가지의 경우가 나와서 시간초과가난다. (완전탐색 불가능)
+    * 수학식을 적용해서 풀어야하는것 같지만 못풀고 제출
+---
+### 4번 문제
+```sql
+SELECT B.NAME, COUNT(B.NAME) AS COUNT
+FROM CARTS A,
+CART_PRODUCTS B
+WHERE A.USER_ID = 4
+AND A.ID = B.CART_ID
+GROUP BY B.NAME
+ORDER BY COUNT DESC, B.NAME
+```
+  * 접근 방법
+    * 문제에서 
 
