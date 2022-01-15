@@ -1,9 +1,9 @@
-# 7. Java
+# 8. Java
 **:book: Contents**
-- [7. Java](#7-java)
+- [8. Java](#8-java)
     - [java와 c/c++의 차이점](#java와-cc의-차이점)
     - [java와 python의 차이점](#java와-python의-차이점)
-    - [java코드의 실행과정](#java코드 실행과정)
+    - [java코드 실행과정](#java코드-실행과정)
     - [java 언어의 장단점](#java-언어의-장단점)
     - [java의 데이터 타입](#java의-데이터-타입)
     - [Wrapper class](#wrapper-class)
@@ -18,7 +18,6 @@
       - [객체지향의 특징](#객체지향의-특징)
     - [java의 non-static 멤버와 static 멤버의 차이](#java의-non-static-멤버와-static-멤버의-차이)
     - [:question:java의 main 메서드가 static인 이유](#questionjava의-main-메서드가-static인-이유)
-    - [java의 final 키워드](#java의-final-키워드)
     - [java의 가비지 컬렉션 처리 방법](#java의-가비지-컬렉션-처리-방법)
       - [java9의 default GC](#java9의-default-gc)
     - [java 직렬화와 역직렬화란 무엇인가](#java-직렬화와-역직렬화란-무엇인가)
@@ -54,7 +53,7 @@
 ### java와 python의 차이점
 - java는 컴파일언어로 모든 코드를 한번에 해석하며 python은 인터프리터 언어로 런타임 때마다 한줄 씩 해석을 한다.
 
-### java코드의 실행과정
+### java코드 실행과정
 - .java로 작성한 소스를 javac 컴파일러가 이를 바이트코드인 .class파일로 변경한다.
 - .class로 변경된 파일을 jvm의 class로더에 전달한다.
 - class로더는 동적로딩에 의해 필요한 클래스들을 로딩하고 jvm 런타임 데이터 영역에 올린다. (jvm메모리 영역으로 올린다.)
@@ -306,32 +305,6 @@ public class Wrapper03 {
 > :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#7-java)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [JAVA :: 자바의 메모리 구조 - 1. 메소드 영역(Method Area) - WANZARGEN](http://wanzargen.tistory.com/16)
 > 
-### java의 final 키워드
-* **final 키워드**
-  * 개념: 변수나 메서드 또는 클래스가 '변경 불가능'하도록 만든다.
-  * 원시(Primitive) 변수에 적용 시
-    * 해당 변수의 값은 변경이 불가능하다.
-  * 참조(Reference) 변수에 적용 시
-    * 참조 변수가 힙(heap) 내의 다른 객체를 가리키도록 변경할 수 없다.
-  * 메서드에 적용 시
-    * 해당 메서드를 오버라이드할 수 없다.
-  * 클래스에 적용 시
-    * 해당 클래스의 하위 클래스를 정의할 수 없다.
-* **finally 키워드**
-  * 개념: try/catch 블록이 종료될 때 항상 실행될 코드 블록을 정의하기 위해 사용한다.
-  * finally는 선택적으로 try 혹은 catch 블록 뒤에 정의할 때 사용한다.
-  * finally 블록은 예외가 발생하더라도 항상 실행된다.
-    * 단, JVM이 try 블록 실행 중에 종료되는 경우는 제외한다.
-  * finally 블록은 종종 뒷마무리 코드를 작성하는 데 사용된다.
-  * finally 블록은 try와 catch 블록 다음과, 통제권이 이전으로 다시 돌아가기 전 사이에 실행된다.
-* **finalize() 메서드**
-  * 개념: 쓰레기 수집기(GC, Garbage Collector)가 더 이상의 참조가 존재하지 않는 객체를 메모리에서 삭제하겠다고 결정하는 순간 호출된다.
-  * Object 클래스의 finalize() 메서드를 오버라이드해서 맞춤별 GC를 정의할 수 있다.
-    * `protected void finalize() throws Throwable { // 파일 닫기, 자원 반환 등등 }`
-
-> :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#7-java)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
-> - [https://gmlwjd9405.github.io/2018/08/06/java-final.html](https://gmlwjd9405.github.io/2018/08/06/java-final.html)
-
 ### java의 가비지 컬렉션 처리 방법
 * java의 가비지 컬렉션(Garbage Collection) 처리 방법
   * GC 작업을 수행하는 가비지 콜렉터가 하는 일
@@ -765,12 +738,6 @@ class FeaturePhone implements Phone {
 > - [http://loustler.io/languages/oop_interface_and_abstract_class/](http://loustler.io/languages/oop_interface_and_abstract_class/)
 > - [http://alecture.blogspot.com/2011/05/abstract-class-interface.html](http://alecture.blogspot.com/2011/05/abstract-class-interface.html)
 
-### JVM 구조
-
-> :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#7-java)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
-> - [http://www.itworld.co.kr/news/110837](http://www.itworld.co.kr/news/110837)
-> - [http://hoonmaro.tistory.com/19](http://hoonmaro.tistory.com/19)
-
 ### Java Collections Framework
 <img src="./images/java-collections-framework.png" width="70%" height="70%">
 
@@ -851,9 +818,6 @@ class FeaturePhone implements Phone {
     * 내부에서 자동으로 동기화 처리가 일어난다.
     * 성능이 좋지 않고 무거워 잘 쓰이지 않는다.
 
-> :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#7-java)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
-
-### Annotation
 > :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#7-java)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 
 ### String StringBuilder StringBuffer
