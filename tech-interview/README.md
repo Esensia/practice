@@ -6,19 +6,20 @@
 3. [Network](#3-network)
 4. [Operating System](#4-operating-system)
 5. [Database](#5-database)
-6. [Algorithm](#6-algorithm)
-7. [Java](#7-java)
-8. [Spring](#8-spring)
-9. [ETC](#9-etc)
+6. [Design Pattern](#6-design-pattern)
+7. [Algorithm](#7-algorithm)
+8. [Java](#8-java)
+9. [Spring](#9-spring)
+10. [ETC](#10-etc)
 
 ---
 ## 1. Project
-:arrow_forward: [답변 내용](/contents/project.md)
+:arrow_forward: [답변 내용](/tech-interview/contents/project.md)
 * NH은행/상호 PPR 전자창구 구축 프로젝트
 * NH선물 차세대 프로젝트
 
 ## 2. Data Structure
-:arrow_forward: [답변 내용](/contents/datastructure.md)
+:arrow_forward: [답변 내용](/tech-interview/contents/datastructure.md)
 * Array
 * LinkedList
 * HashTable
@@ -28,11 +29,9 @@
 * Tree
 * 그래프(Graph)와 트리(Tree)의 차이점
 * Binary Heap
-* Red-Black Tree
-* B+ Tree
 
 ## 3. Network
-:arrow_forward: [답변 내용](/contents/network.md)
+:arrow_forward: [답변 내용](/tech-interview/contents/network.md)
 * OSI 7계층
 * TCP/IP의 개념
 * TCP와 UDP
@@ -54,7 +53,7 @@
 * Frame, Packet, Segment, Datagram
 
 ## 4. Operating System
-:arrow_forward: [답변 내용](/contents/os.md)
+:arrow_forward: [답변 내용](/tech-interview/contents/os.md)
 * 프로세스와 스레드의 차이(Process vs Thread)
 * 멀티 프로세스 대신 멀티 스레드를 사용하는 이유
 * 뮤텍스와 세마포어의 차이
@@ -64,7 +63,7 @@
 * Context Switching
 
 ## 5. Database
-:arrow_forward: [답변 내용](/contents/db.md)
+:arrow_forward: [답변 내용](/tech-interview/contents/database.md)
 * 데이터베이스 풀
 * 트랜잭션(Transaction) 이란
 * Join
@@ -78,7 +77,7 @@
 * java JDBC
 
 ## 6. Design Pattern
-:arrow_forward: [답변 내용](/contents/designpattern.md)
+:arrow_forward: [답변 내용](/tech-interview/contents/designpattern.md)
 * 디자인 패턴의 개념과 종류
 * Singleton 패턴
 * Strategy 패턴
@@ -88,7 +87,7 @@
 
 ## 7. Algorithm 
 ### :pushpin: [관련 링크](https://github.com/WeareSoft/algorithm-study)
-:arrow_forward: [답변 내용](/contents/algorithm.md)
+:arrow_forward: [답변 내용](/tech-interview/contents/algorithm.md)
 * BigO
 * DFS와 BFS의 차이
 * Fibonacci에서의 세 가지(Recursion, Dynamic Programming, 반복) 방식에 대한 시간복잡도와 공간복잡도 차이
@@ -97,7 +96,7 @@
 * 최소 신장 트리(MST, Minimum Spanning Tree)란
 * 
 ## 8. Java
-:arrow_forward: [답변 내용](/contents/java.md)
+:arrow_forward: [답변 내용](/tech-interview/contents/java.md)
 * java와 c/c++의 차이점
 * java와 python의 차이점
 * java 언어의 장단점
@@ -133,10 +132,9 @@
 * Stream이란?
 * Lambda란?
 
-## 10. Spring
-:arrow_forward: [답변 내용](/contents/spring.md)
+## 9. Spring
+:arrow_forward: [답변 내용](/tech-interview/contents/spring.md)
 * 스프링 프레임워크란
-* Spring, Spring MVC, Spring Boot의 차이
 * Bean이란
 * Container란
 * IOC(Inversion of Control, 제어의 역전)란
@@ -145,11 +143,9 @@
 * AOP(Aspect Oriented Programming)란
 * POJO
 * DAO와 DTO의 차이
-* Spring JDBC를 이용한 데이터 접근
-* Filter와 Interceptor 차이
 
-## 12. ETC
-:arrow_forward: [답변 내용](/contents/etc.md)
+## 10. ETC
+:arrow_forward: [답변 내용](/tech-interview/contents/etc.md)
 * TDD란
 * 웹 브라우저에서 서버로 어떤 페이지를 요청하면 일어나는 일련의 과정을 설명
   * Ex. url에 'www.naver.com' 을 입력했다. 일어나는 현상에 대해 아는대로 설명하라.
