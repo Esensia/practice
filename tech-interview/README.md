@@ -46,11 +46,9 @@
 * CORS란
 * GET 메서드와 POST 메서드
 * 쿠키(Cookie)와 세션(Session)
-* DNS
 * REST와 RESTful의 개념
 * 소켓(Socket)이란
 * Socket.io와 WebSocket의 차이
-* Frame, Packet, Segment, Datagram
 
 ## 4. Operating System
 :arrow_forward: [답변 내용](/tech-interview/contents/os.md)
@@ -78,7 +76,6 @@
 
 ## 6. Design Pattern
 :arrow_forward: [답변 내용](/tech-interview/contents/designpattern.md)
-* 디자인 패턴의 개념과 종류
 * Singleton 패턴
 * Strategy 패턴
 * Template Method 패턴
@@ -90,28 +87,22 @@
 :arrow_forward: [답변 내용](/tech-interview/contents/algorithm.md)
 * BigO
 * DFS와 BFS의 차이
-* Fibonacci에서의 세 가지(Recursion, Dynamic Programming, 반복) 방식에 대한 시간복잡도와 공간복잡도 차이
 * 정렬 알고리즘의 종류와 개념
 * Greedy 알고리즘
 * 최소 신장 트리(MST, Minimum Spanning Tree)란
-* 
+
 ## 8. Java
 :arrow_forward: [답변 내용](/tech-interview/contents/java.md)
 * java와 c/c++의 차이점
 * java와 python의 차이점
+* java코드 실행과정
 * java 언어의 장단점
-* java의 접근 제어자의 종류와 특징
 * java의 데이터 타입
 * Wrapper class
-* OOP의 4가지 특징
-  * 추상화(Abstraction), 캡슐화(Encapsulation), 상속(Inheritance), 다형성(Polymorphism)
-* OOP의 5대 원칙 (SOLID)
 * 객체지향 프로그래밍과 절차지향 프로그래밍의 차이
 * 객체지향(Object-Oriented)이란
 * java의 non-static 멤버와 static 멤버의 차이
   * Q. java의 main 메서드가 static인 이유
-* java의 final 키워드 (final/finally/finalize)
-* java의 제네릭(Generic)과 c++의 템플릿(Template)의 차이
 * java의 가비지 컬렉션(Garbage Collection) 처리 방법
 * java 직렬화(Serialization)와 역직렬화(Deserialization)란 무엇인가
 * 클래스, 객체, 인스턴스의 차이
@@ -119,12 +110,10 @@
 * 오버로딩과 오버라이딩의 차이(Overloading vs Overriding)
 * Call by Reference와 Call by Value의 차이
 * 인터페이스와 추상 클래스의 차이(Interface vs Abstract Class)
-* JVM 구조
 * Java Collections Framework
   * java Map 인터페이스 구현체의 종류
   * java Set 인터페이스 구현체의 종류
   * java List 인터페이스 구현체의 종류
-* Annotation
 * String, StringBuilder, StringBuffer
 * 동기화와 비동기화의 차이(Syncronous vs Asyncronous)
 * java에서 '=='와 'equals()'의 차이
@@ -137,33 +126,21 @@
 * 스프링 프레임워크란
 * Bean이란
 * Container란
-* IOC(Inversion of Control, 제어의 역전)란
 * MVC 패턴이란
+* IOC(Inversion of Control, 제어의 역전)란
 * DI(Dependency Injection, 의존성 주입)란
 * AOP(Aspect Oriented Programming)란
-* POJO
 * DAO와 DTO의 차이
 
 ## 10. ETC
 :arrow_forward: [답변 내용](/tech-interview/contents/etc.md)
-* TDD란
 * 웹 브라우저에서 서버로 어떤 페이지를 요청하면 일어나는 일련의 과정을 설명
   * Ex. url에 'www.naver.com' 을 입력했다. 일어나는 현상에 대해 아는대로 설명하라.
-* 컴파일러와 인터프리터
-* 분산락
-* 프레임워크와 라이브러리의 차이
 * 64bit CPU와 32bit CPU 차이
 * CVS, SVN, Git
-* Git Branch 종류(5가지)
 * 웹 서버(Web Server)와 웹 어플리케이션 서버(WAS)의 차이
-* 애자일 방법론이란
 * Servlet과 JSP
-* Redis와 Memcached의 차이
-* Maven과 Gradle의 차이
-* Blocking과 Non-Blocking
 * 함수형 프로그래밍이란
-* 이벤트 기반 프로그래밍이란
-* Mock이란
 
 ---
 
