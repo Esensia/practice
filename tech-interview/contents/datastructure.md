@@ -1,4 +1,4 @@
-# 1. Data Structure
+# 2. Data Structure
 **:book: Contents**
 * [Array](#array)
 * [LinkedList](#linkedlist)
