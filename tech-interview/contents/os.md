@@ -1,4 +1,4 @@
-# 3. Operating System
+# 4. Operating System
 **:book: Contents**
 * [프로세스와 스레드의 차이(Process vs Thread)](#프로세스와-스레드의-차이)
 * [멀티 프로세스 대신 멀티 스레드를 사용하는 이유](#멀티-프로세스-대신-멀티-스레드를-사용하는-이유)
