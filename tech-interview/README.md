@@ -13,7 +13,7 @@
 
 ---
 ## 1. Project
-:arrow_forward: [답변 내용](/contents/Project.md)
+:arrow_forward: [답변 내용](/contents/project.md)
 * NH은행/상호 PPR 전자창구 구축 프로젝트
 * NH선물 차세대 프로젝트
 
