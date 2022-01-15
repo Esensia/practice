@@ -1,4 +1,4 @@
-# 8. Spring
+# 9. Spring
 **:book: Contents**
 * [스프링 프레임워크란](#스프링-프레임워크란)
 * [Bean이란](#bean이란)
