@@ -104,10 +104,12 @@
 > :arrow_double_up:[Top](#5-design-pattern)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#5-design-pattern)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 * MVC1
 * <img src="./images/mvc1.png" width="60%" height="60%">
+
   - 웹브라우저 요청을 JSP가 처리, JSP가 Controller와 view 기능 모두 담당
   - jsp페이지 내에서 controller는 자바, view는 html, css 이벤트는 자바스크립트를 사용하고 Model은 jdbc 인터페이스로 DB 조작하면서 class를 정의
 * MVC2
 * <img src="./images/mvc2.png" width="60%" height="60%">
+
   - 웹 브라우저 요청을 controller에서 처리 controller는 요청에 대한 로직처리를 model로 보내고, model은 결과를 view로 보내여 사용자에게 응답
   - model은 mvc1, mvc2 모두 동일. view는 jsp로 구성되어 있으며, 자바는 포함되지 않고 jstl을 사용해 결과를 표현합니다.
 
