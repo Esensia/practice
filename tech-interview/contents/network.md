@@ -1,10 +1,8 @@
 # 3. Network
 **:book: Contents**
 - [3. Network](#2-network)
-    - [OSI 7계층](#osi-7계층)
     - [TCP IP의 개념](#tcp-ip의-개념)
     - [TCP와 UDP](#tcp와-udp)
-    - [TCP와 UDP의 헤더 분석](#tcp와-udp의-헤더-분석)
     - [TCP의 3 way handshake와 4 way handshake](#tcp의-3-way-handshake와-4-way-handshake)
       - [:question:TCP 관련 질문 1](#questiontcp-관련-질문-1)
       - [:question:TCP 관련 질문 2](#questiontcp-관련-질문-2)
@@ -16,62 +14,16 @@
     - [GET 메서드와 POST 메서드](#get-메서드와-post-메서드)
     - [쿠키와 세션](#쿠키와-세션)
     - [REST와 RESTful의 개념](#rest와-restful의-개념)
-    - [소켓이란](#소켓이란)
-    - [Socket.io와 WebSocket의 차이](#socketio와-websocket의-차이)
   - [Reference](#reference)
   - [:house: Home](#house-home)
 
 
 ---
-
-### OSI 7계층
-* OSI(Open Systems Interconnection Reference Model)란
-    <img src="./images/osi-7-layer.png" width="60%" height="60%">
-    * 국제표준화기구(ISO)에서 개발한 모델로, 컴퓨터 네트워크 프로토콜 디자인과 통신을 계층으로 나누어 설명한 것이다.
-    * 이 모델은 프로토콜을 기능별로 나눈 것이다. 
-    * 각 계층은 하위 계층의 기능만을 이용하고, 상위 계층에게 기능을 제공한다. 
-    * '프로토콜 스택' 혹은 '스택'은 이러한 계층들로 구성되는 프로토콜 시스템이 구현된 시스템을 가리키는데, 프로토콜 스택은 하드웨어나 소프트웨어 혹은 둘의 혼합으로 구현될 수 있다. 
-    * 일반적으로 하위 계층들은 하드웨어로, 상위 계층들은 소프트웨어로 구현된다.
-1. 물리 계층(Physical layer)
-    * 네트워크의 기본 네트워크 하드웨어 전송 기술을 이룬다. 
-    * 네트워크의 높은 수준의 기능의 논리 데이터 구조를 기초로 하는 필수 계층이다.
-    * 전송 단위는 Bit이다.
-2. 데이터 링크 계층(Data link layer)
-    * 포인트 투 포인트(Point to Point) 간 신뢰성있는 전송을 보장하기 위한 계층으로 CRC 기반의 오류 제어와 흐름 제어가 필요하다. 
-    * 주소 값은 물리적으로 할당 받는데, 이는 네트워크 카드가 만들어질 때부터 맥 주소(MAC address)가 정해져 있다는 뜻이다. 
-    * 데이터 링크 계층의 가장 잘 알려진 예는 이더넷이다.
-    * 데이터 전송 단위는 Frame이다. 
-3. 네트워크 계층(Network layer)
-    * 여러개의 노드를 거칠때마다 경로를 찾아주는 역할을 하는 계층으로 다양한 길이의 데이터를 네트워크들을 통해 전달하고, 그 과정에서 전송 계층이 요구하는 서비스 품질(QoS)을 제공하기 위한 기능적, 절차적 수단을 제공한다. 
-    * 네트워크 계층은 라우팅, 흐름 제어, 세그멘테이션(segmentation/desegmentation), 오류 제어, 인터네트워킹(Internetworking) 등을 수행한다. 
-    * 논리적인 주소 구조(IP), 곧 네트워크 관리자가 직접 주소를 할당하는 구조를 가지며, 계층적(hierarchical)이다.
-    * 데이터 전송 단위는 Datagram(Packet)이다.
-4. 전송 계층(Transport layer)
-    * 양 끝단(End to end)의 사용자들이 신뢰성있는 데이터를 주고 받을 수 있도록 해 주어, 상위 계층들이 데이터 전달의 유효성이나 효율성을 생각하지 않도록 해준다. 
-    * 시퀀스 넘버 기반의 오류 제어 방식을 사용한다. 
-    * 전송 계층은 특정 연결의 유효성을 제어하고, 일부 프로토콜은 상태 개념이 있고(stateful), 연결 기반(connection oriented)이다. (이는 전송 계층이 패킷들의 전송이 유효한지 확인하고 전송 실패한 패킷들을 다시 전송한다는 것을 뜻한다.) 
-    * 가장 잘 알려진 전송 계층의 예는 TCP이다.
-    * 데이터 전송 단위는 Segment이다.
-5. 세션 계층(Session layer)
-    * 양 끝단의 응용 프로세스가 통신을 관리하기 위한 방법을 제공한다. 
-    * 동시 송수신 방식(duplex), 반이중 방식(half-duplex), 전이중 방식(Full Duplex)의 통신과 함께, 체크 포인팅과 유휴, 종료, 다시 시작 과정 등을 수행한다. 
-    * 이 계층은 TCP/IP 세션을 만들고 없애는 책임을 진다.
-6. 표현 계층(Presentation layer)
-    * 코드 간의 번역을 담당하여 사용자 시스템에서 데이터의 형식상 차이를 다루는 부담을 응용 계층으로부터 덜어 준다. 
-    * MIME 인코딩이나 암호화 등의 동작이 이 계층에서 이루어진다. 
-7. 응용 계층(Application layer)
-    * 응용 프로세스와 직접 관계하여 일반적인 응용 서비스를 수행한다. 
-    * 일반적인 응용 서비스는 관련된 응용 프로세스들 사이의 전환을 제공한다. 
-
-> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
-> - [https://ko.wikipedia.org/wiki/OSI_%EB%AA%A8%ED%98%95](https://ko.wikipedia.org/wiki/OSI_%EB%AA%A8%ED%98%95)
-
 ### TCP IP의 개념
-<!-- * 네트워크를 상호 연결시켜 정보를 전송할 수 있도록 하는 기능을 가진 다수의 프로토콜이 모여있는 프로토콜 집합
-* 인터넷: 데이터 링크 계층을 지원하는 네트워크는 TCP/IP 프로토콜을 이용하여 상호 연결하는 네트워크 -->
-
+* 네트워크를 상호 연결시켜 정보를 전송할 수 있도록 하는 기능을 가진 다수의 프로토콜이 모여있는 프로토콜 집합
+* 인터넷: 데이터 링크 계층을 지원하는 네트워크는 TCP/IP 프로토콜을 이용하여 상호 연결하는 네트워크
 > :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
-> - []()
+
 
 ### TCP와 UDP
 * 네트워크 계층 중 **전송 계층에서 사용하는 프로토콜**
@@ -117,53 +69,6 @@
 > - [http://mangkyu.tistory.com/15](http://mangkyu.tistory.com/15)
 > - [http://ddooooki.tistory.com/21](http://ddooooki.tistory.com/21)
 > - [http://www.inven.co.kr/webzine/news/?news=165870](http://www.inven.co.kr/webzine/news/?news=165870)
-
-### TCP와 UDP의 헤더 분석
-
-#### TCP Header
-* TCP는 상위계층으로부터 데이터를 받아 **헤더**를 추가해 IP로 전송
-
-![tcpheader](./images/tcpheader.png)
-
-|필드|내용|크기(bits)|
-|----|----|----|
-|Source Port, Destination Port|TCP로 연결되는 가상 회선 양단의 송수신 프로세스에 할당되는 포트 주소|16|
-|Sequence Number|송신자가 지정하는 순서 번호, **전송되는 바이트 수** 기준으로 증가<br/>SYN = 1 : 초기 시퀀스 번호. ACK 번호는 이 값에 + 1|32|
-|Acknowledgment(ACK) Number|수신 프로세스가 제대로 **수신한 바이트의 수** 응답 용|32|
-|Header Length(Data Offset)|TCP 헤더 길이를 4바이트 단위로 표시(최소 20, 최대 60 바이트)|4|
-|Resv(Reserved)|나중을 위해 0으로 채워진 예약 필드|6|
-|Flag Bit|SYN, ACK, FIN 등 제어 번호(아래 표 참고)|6|
-|Window Size|**수신 윈도우의 버퍼 크기** 지정(0이면 송신 중지). 상대방의 확인 없이 전송 가능한 최대 바이트 수|16|
-|TCP Checksum|헤더와 데이터의 에러 확인 용도|16|
-|Urgent Pointer(긴급 위치)|현재 순서 번호부터 표시된 바이트까지 긴급한 데이터임을 표시, URG 플래그 비트가 지정된 경우에만 유효|16|
-|Options|추가 옵션 있을 경우 표시|0~40|
-
-  * Flag Bit
-
-    |종류|내용|
-    |----|----|
-    |URG|긴급 위치 필드 유효 여부 설정|
-    |ACK|응답 유효 여부 설정. 최초의 SYN 패킷 이후 모든 패킷은 ACK 플래그 설정 필요. 데이터를 잘 받았으면 긍정 응답으로 ACK(=SYN+1) 전송|
-    |PSH|수신측에 버퍼링된 데이터를 상위 계층에 즉시 전달할 때|
-    |RST|연결 리셋 응답 혹은 유효하지 않은 세그먼트 응답|
-    |SYN|연결 설정 요청. 양쪽이 보낸 최초 패킷에만 SYN 플래그 설정|
-    |FIN|연결 종료 의사 표시|
-
-#### UDP Header
-![udpheader](./images/udpheader.png)
-
-|필드|내용|크기(bits)|
-|----|----|----|
-|Source Port, Destination Port|송수신 애플리케이션의 포트 번호|16|
-|Length|헤더와 데이터 포함 전체 길이|16|
-|Checksum|헤더와 데이터의 에러 확인 용도. UDP는 에러 복구를 위한 필드가 불필요하기 때문에 TCP 헤더에 비해 간단|16|
-
-> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
-> - [TCP 와 UDP 차이를 자세히 알아보자](https://velog.io/@hidaehyunlee/TCP-%EC%99%80-UDP-%EC%9D%98-%EC%B0%A8%EC%9D%B4)
-> - [TCP, UDP header](https://cysecguide.blogspot.com/2018/04/tcp-udp-header.html)
-> - [TCP 와 UDP [동작원리/헤더/차이점]](https://m.blog.naver.com/PostView.nhn?blogId=minki0127&logNo=220804490550&proxyReferer=https:%2F%2Fwww.google.com%2F)
-> - [https://idchowto.com/?p=18352](https://idchowto.com/?p=18352)
-> - [https://m.blog.naver.com/PostView.nhn?blogId=koromoon&logNo=120162515270&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F](https://m.blog.naver.com/PostView.nhn?blogId=koromoon&logNo=120162515270&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
 
 ### TCP의 3 way handshake와 4 way handshake
 * TCP는 장치들 사이에 논리적인 접속을 성립(establish)하기 위하여 연결을 설정하여 **신뢰성을 보장하는 연결형 서비스** 이다.
@@ -724,57 +629,6 @@
 > - [http://tech.devgear.co.kr/delphi_news/433404](http://tech.devgear.co.kr/delphi_news/433404)
 > - [https://meetup.toast.com/posts/92](https://meetup.toast.com/posts/92)
 > - [https://spoqa.github.io/2012/02/27/rest-introduction.html](https://spoqa.github.io/2012/02/27/rest-introduction.html)
-
-### 소켓이란
-<!-- * 소켓(Socket)은 TCP/IP를 이용하는 API로 소프트웨어로 작성된 통신의 접속점이다. -->
-> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
-> - []()
-
-### Socket.io와 WebSocket의 차이
-* WebSocket
-    * 개념
-        * 웹 페이지의 한계에서 벗어나 실시간으로 상호작용하는 웹 서비스를 만드는 표준 기술
-    * 배경 
-        * HTTP 프로토콜은 클라이언트에서 서버로의 단방향 통신을 위해 만들어진 방법이다.
-        * 실시간 웹을 구현하기 위해서는 양방향 통신이 가능해야 하는데, WebSocket 이전에는 Polling, Streaming 방식의 AJAX 코드를 이용하여 이를 구현하였다.
-        * 하지만 이 방법들을 이용하면 각 브라우저마다 구현 방법이 달라 개발이 어렵다는 문제점이 있었다.
-        * 이를 위해 HTML5 표준의 일부로 WebSocket이 만들어지게 되었다. 
-    * 일반 TCP Socket과의 차이점
-        * 일반 HTTP Request를 통해 handshaking 과정을 거쳐 최초 접속이 이루어진다.
-    * 특징 
-        * 소켓을 이용하여 자유롭게 데이터를 주고 받을 수 있다. 
-        * 기존의 요청-응답 관계 방식보다 더 쉽게 데이터를 교환할 수 있다.
-        * 다른 HTTP Request와 마찬가지로 80포트를 통해 웹 서버에 연결한다. 
-        * http:// 대신 ws:// 로 시작하며 Streaming과 유사한 방식으로 푸쉬를 지원한다.
-        * 클라이언트인 브라우저와 마찬가지로 웹 서버도 WebSocket 기능을 지원해야 한다. (WebSocket을 지원하는 여러 서버 구현체(Jetty, GlassFish, Node.js, Netty, Grizzly 등)가 있다.)
-        * 클라이언트인 브라우저 중에서는 Chrome, Safari, Firefox, Opera에서 WebSocket을 사용할 수 있으며, 각종 모바일 브라우저에서도 WebSocket을 사용할 수 있다.
-        * WebSocket 프로토콜은 아직 확정된 상태가 아니기 때문에 브라우저별로 지원하는 WebSocket 버전이 다르다. (예전 브라우저는 지원하지 않는다.)
-        * 즉, WebSocket은 다가올 미래의 기술이지 아직 인터넷 기업에서 시범적으로라도 써 볼 수 있는 기술이 아니다. 
-    * 장점
-        * HTTP Request를 그대로 사용하기 때문에 기존의 80, 443포트로 접속을 하므로 추가로 방화벽을 열지 않고도 양방향 통신이 가능하다. 
-        * HTTP 규격인 CORS 적용이나 인증 등의 과정을 기존과 동일하게 사용할 수 있다. 
-* Socket.io
-    * 개념
-        * 다양한 방식의 실시간 웹 기술을 손쉽게 사용할 수 있는 모듈 (웹 클라이언트로의 푸쉬를 지원하는 모듈)
-        * WebSocket, FlashSocket, AJAX Long Polling, AJAX Multi part Streaming, IFrame, JSONP Polling 등 다양한 방법을 하나의 API로 추상화한 것이다. 
-        * 즉, Socket.io는 JavaScript를 이용하여 브라우저 종류에 상관없이 실시간 웹을 구현할 수 있도록 한 기술이다. 
-    * 특징
-        * Socket.io는 현재 바로 사용할 수 있는 기술이다. 
-        * WebSocket 프로토콜은 IETF에서 관장하는 표준 프로토콜이라서 WebSocket을 지원하는 여러 서버 구현체(Jetty, GlassFish, Node.js, Netty, Grizzly 등)가 있지만 Socket.io는 Node.js 하나 밖에 없다.
-    * 장점
-        * 개발자는 Socket.io로 개발을 하고 클라이언트로 푸쉬 메시지를 보내기만 하면, WebSocket을 지원하지 않는 브라우저의 경우는 브라우저 모델과 버전에 따라서 AJAX Long Polling, MultiPart Streaming, Iframe을 이용한 푸쉬, JSONP Polling, Flash Socket 등 다양한 방법으로 내부적으로 푸쉬 메시지를 보내준다.
-        * 즉, WebSocket을 지원하지 않는 어느 브라우져라도 푸쉬 메시지를 일관된 모듈로 보낼 수 있다. 
-
-> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
-> - [https://d2.naver.com/helloworld/1336](https://d2.naver.com/helloworld/1336)
-> - [http://bcho.tistory.com/896](http://bcho.tistory.com/896)
-> - [http://adrenal.tistory.com/20](http://adrenal.tistory.com/20)
-> - [http://blog.jeonghwan.net/socket-io를-이용한-실시간-웹-구현](http://blog.jeonghwan.net/socket-io%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EC%9B%B9-%EA%B5%AC%ED%98%84/)
-> - [http://woowabros.github.io/woowabros/2017/09/12/realtime-service.html](http://woowabros.github.io/woowabros/2017/09/12/realtime-service.html)
-
- 
-> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
-> - []()
 
 ---
 ## Reference
