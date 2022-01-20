@@ -1,10 +1,10 @@
 import UIKit
 
-let alphabetA : Character = "A"
-print(alphabetA)
+var person : (String, Int, Double) = ("Minki",100,170.0)
 
-let commandCharacter: Character = "😄"
-print(commandCharacter)
+print("이름 : \(person.0), 나이 : \(person.1), 신장 : \(person.2)")
 
-let 한글변수이름:Character = "ㄱ"
-print("한글의 첫 자음: \(한글변수이름)")
+person.1 = 99
+person.2 = 168.5
+
+print("이름 : \(person.0), 나이 : \(person.1), 신장 : \(person.2)")
