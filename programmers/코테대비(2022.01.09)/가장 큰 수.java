@@ -47,7 +47,8 @@ class Solution {
             pt.y = str;
             arr.add(pt);
         }
-        Collections.sort(arr);
+        //Collections.sort(arr);
+        Collections.sort(arr, (a,b) -> b.y.compareTo(this.a));
         for(int i=0;i<arr.size();i++){
             answer += arr.get(i).x;
         }
