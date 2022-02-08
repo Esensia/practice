@@ -27,4 +27,5 @@ def solution(id_list, report, k):
                 count+=1
         answer.append(count)
                 
+            
     return answer
